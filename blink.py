@@ -10,11 +10,10 @@ pins = (
 
 
 def blink(gpio):
-    for i in range(5):
-        gpio.digital_write(GPIO_A, GPIO.HIGH)
-        time.sleep(1)
-        gpio.digital_write(GPIO_A, GPIO.LOW)
-        time.sleep(1)
+    gpio.digital_write(GPIO_A, GPIO.HIGH)
+    time.sleep(1)
+    gpio.digital_write(GPIO_A, GPIO.LOW)
+    time.sleep(1)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,15 @@
 
 from bluetooth import *
 import sys
+import time
+from gpio_96boards import GPIO
+GPIO_A = GPIO.gpio_id('GPIO_A')
+pins = ((GPIO_A, 'out'),)
+
+def blink(gpio):
+    gpio.digital_write(GPIO_A, GPIO.HIGH)
+    time.sleep(1)
+    gpio.digital_write(GPIO_A, GPIO.LOW)
 
 if sys.version < '3':
     input = raw_input
@@ -38,5 +47,12 @@ while True:
     data = input()
     if len(data) == 0: break
     sock.send(data)
+    data = sock.recv(1024)
+    print "received [%s]" % data
+    if data  == "69":
+        with GPIO(pins) as gpio:
+            blink(gpio)
+    
+    
 
 sock.close()
