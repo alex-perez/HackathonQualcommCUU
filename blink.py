@@ -7,6 +7,10 @@ GPIO_A = GPIO.gpio_id('GPIO_A')
 pins = (
     (GPIO_A, 'out'),
 )
+GPIO_B = GPIO.gpio_id('GPIO_B')
+pins = (
+    (GPIO_B, 'in'),
+)
 
 
 def blink(gpio):
@@ -14,6 +18,7 @@ def blink(gpio):
     time.sleep(1)
     gpio.digital_write(GPIO_A, GPIO.LOW)
     time.sleep(1)
+    alto = gpio.digital_read(GPIO_B)
 
 
 if __name__ == '__main__':
