@@ -15,6 +15,7 @@ def blink(gpio):
     time.sleep(1)
 
 ADAFRUIT_IO_KEY = 'c71578bc27d14943ad226e958d3bf25b'
+    
 
 aio = Client(ADAFRUIT_IO_KEY)
 
